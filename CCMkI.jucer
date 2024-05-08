@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="JMSZGt" name="CCMkI" projectType="audioplug" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
+  <MAINGROUP id="s7Cwgo" name="CCMkI">
+    <GROUP id="{648492CA-B298-9056-6055-BA43712E6248}" name="Assets">
+      <FILE id="wvda19" name="background.jpg" compile="0" resource="1" file="Assets/background.jpg"/>
+      <FILE id="q8vFJ5" name="background.png" compile="0" resource="1" file="Assets/background.png"/>
+      <FILE id="yn2Jx3" name="faderView2.png" compile="0" resource="1" file="Assets/faderView2.png"/>
+      <FILE id="Ahv7KF" name="faderView.png" compile="0" resource="1" file="Assets/faderView.png"/>
+      <FILE id="oYLmlU" name="knob_AR.png" compile="0" resource="1" file="Assets/knob_AR.png"/>
+      <FILE id="bDJQcj" name="knob_T.png" compile="0" resource="1" file="Assets/knob_T.png"/>
+      <FILE id="kCnETg" name="knob_input.png" compile="0" resource="1" file="Assets/knob_input.png"/>
+      <FILE id="xLqXuH" name="knob_output.png" compile="0" resource="1" file="Assets/knob_output.png"/>
+    </GROUP>
+    <GROUP id="{CCDCF65D-A361-3DFF-9B9E-5C7BF2C548A3}" name="Components">
+      <FILE id="bVVc49" name="LevelMeters.h" compile="0" resource="0" file="Source/Components/LevelMeters.h"/>
+      <FILE id="nlFklu" name="ViewOne.cpp" compile="1" resource="0" file="Source/Components/ViewOne.cpp"/>
+      <FILE id="vNvPIr" name="ViewOne.h" compile="0" resource="0" file="Source/Components/ViewOne.h"/>
+    </GROUP>
+    <GROUP id="{63461B6F-0999-9ED9-0642-24257B09D6A1}" name="ManagerUtilities">
+      <FILE id="vjf2ji" name="PresetManager.cpp" compile="1" resource="0"
+            file="Source/ManagerUtilies/PresetManager.cpp"/>
+      <FILE id="YhELun" name="PresetManager.h" compile="0" resource="0" file="Source/ManagerUtilies/PresetManager.h"/>
+    </GROUP>
+    <GROUP id="{4DCCF58E-8F73-6860-D0C0-86F1E03F5A94}" name="LookAndFeel">
+      <FILE id="PxoS2o" name="FaderLookAndFeel.h" compile="0" resource="0"
+            file="Source/LookAndFeel/FaderLookAndFeel.h"/>
+      <FILE id="nGINPh" name="knobLookAndFeel.h" compile="0" resource="0"
+            file="Source/LookAndFeel/knobLookAndFeel.h"/>
+      <FILE id="VDvvkS" name="KnobLookAndFeel2.h" compile="0" resource="0"
+            file="Source/LookAndFeel/KnobLookAndFeel2.h"/>
+      <FILE id="HmNiSU" name="KnobLookAndFeel3.h" compile="0" resource="0"
+            file="Source/LookAndFeel/KnobLookAndFeel3.h"/>
+      <FILE id="ayI424" name="KnobLookAndFeel4.h" compile="0" resource="0"
+            file="Source/LookAndFeel/KnobLookAndFeel4.h"/>
+    </GROUP>
+    <GROUP id="{167D6C8B-DEBB-0AB1-D3FF-03778FCD5803}" name="DSP">
+      <FILE id="a1Rf4E" name="Compressor.cpp" compile="1" resource="0" file="Source/DSP/Compressor.cpp"/>
+      <FILE id="Ben754" name="Compressor.h" compile="0" resource="0" file="Source/DSP/Compressor.h"/>
+      <FILE id="u7VH7R" name="Conversion.cpp" compile="1" resource="0" file="Source/DSP/Conversion.cpp"/>
+      <FILE id="arNFY7" name="Conversion.h" compile="0" resource="0" file="Source/DSP/Conversion.h"/>
+      <FILE id="ID2Pua" name="Gain.cpp" compile="1" resource="0" file="Source/DSP/Gain.cpp"/>
+      <FILE id="A8ZiEp" name="Gain.h" compile="0" resource="0" file="Source/DSP/Gain.h"/>
+      <FILE id="NytvGB" name="GainComputer.cpp" compile="1" resource="0"
+            file="Source/DSP/GainComputer.cpp"/>
+      <FILE id="GZlydN" name="GainComputer.h" compile="0" resource="0" file="Source/DSP/GainComputer.h"/>
+      <FILE id="GDaWpK" name="OutputGain.cpp" compile="1" resource="0" file="Source/DSP/OutputGain.cpp"/>
+      <FILE id="siY6PU" name="OutputGain.h" compile="0" resource="0" file="Source/DSP/OutputGain.h"/>
+      <FILE id="SQNq5K" name="LevelDetector.cpp" compile="1" resource="0"
+            file="Source/DSP/LevelDetector.cpp"/>
+      <FILE id="DhSovb" name="LevelDetector.h" compile="0" resource="0" file="Source/DSP/LevelDetector.h"/>
+      <FILE id="UtVhkL" name="SmoothingFilter.cpp" compile="1" resource="0"
+            file="Source/DSP/SmoothingFilter.cpp"/>
+      <FILE id="wE6Enf" name="SmoothingFilter.h" compile="0" resource="0"
+            file="Source/DSP/SmoothingFilter.h"/>
+      <FILE id="AKUsgh" name="HPF_Biquad.cpp" compile="1" resource="0" file="Source/DSP/HPF_Biquad.cpp"/>
+      <FILE id="snh6jZ" name="HPF_Biquad.h" compile="0" resource="0" file="Source/DSP/HPF_Biquad.h"/>
+      <FILE id="lXeXWs" name="LPF_Biquad.cpp" compile="1" resource="0" file="Source/DSP/LPF_Biquad.cpp"/>
+      <FILE id="QemApV" name="LPF_Biquad.h" compile="0" resource="0" file="Source/DSP/LPF_Biquad.h"/>
+    </GROUP>
+    <GROUP id="{A2B8BAAB-C02C-EDF6-0D9B-A401ABB56085}" name="Source">
+      <FILE id="LArHZX" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="lMXoHh" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="dJNrDD" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="KsRzzJ" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <VS2022 targetFolder="Builds/VisualStudio2022">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="CCMkI" enablePluginBinaryCopyStep="1"
+                       vst3BinaryLocation="C:\Program Files\Common Files\VST3"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="CCMkI" enablePluginBinaryCopyStep="1"
+                       vst3BinaryLocation="C:\Program Files\Common Files\VST3"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../../../JUCE/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../../../JUCE/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../../../JUCE/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../../../JUCE/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../../../JUCE/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../../../JUCE/JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../../../JUCE/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../../JUCE/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../../JUCE/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../../JUCE/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../../../JUCE/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../../../JUCE/JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2022>
+  </EXPORTFORMATS>
+</JUCERPROJECT>
