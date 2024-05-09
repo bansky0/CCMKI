@@ -12,7 +12,7 @@ namespace BinaryData
     const int            background_jpgSize = 57413;
 
     extern const char*   background_png;
-    const int            background_pngSize = 570392;
+    const int            background_pngSize = 803491;
 
     extern const char*   faderView2_png;
     const int            faderView2_pngSize = 43408;
