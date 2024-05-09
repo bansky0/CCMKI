@@ -18,7 +18,7 @@ ViewOne::ViewOne(CCMkIAudioProcessor& p) : audioProcessor(p)
     
     bufferSizeSlider.setSliderStyle(juce::Slider::LinearHorizontal);
     bufferSizeSlider.setTextBoxStyle(juce::Slider::NoTextBox, true, 0, 0);
-    //bufferSizeSlider.setLookAndFeel(&faderViewSlider);
+    bufferSizeSlider.setLookAndFeel(&faderViewSlider);
     addAndMakeVisible(bufferSizeSlider);
 
     //bufferSizeSlider.setTextBoxStyle(juce::Slider::NoTextBox, false, 0, 0);

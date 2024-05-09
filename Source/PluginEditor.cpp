@@ -19,7 +19,7 @@ CCMkIAudioProcessorEditor::CCMkIAudioProcessorEditor (CCMkIAudioProcessor& p)
     presetsListCombo.addItem("Orangine", 2);
     presetsListCombo.addItem("Glue", 3);
     presetsListCombo.addItem("Colour", 4);
-    presetsListCombo.setSelectedId(1);
+    presetsListCombo.setSelectedId(4);
     presetsListCombo.addListener(this);
     addAndMakeVisible(presetsListCombo);
 
