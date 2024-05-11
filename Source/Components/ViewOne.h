@@ -31,6 +31,9 @@ public:
 private:
     CCMkIAudioProcessor& audioProcessor;
 
+    juce::Image backgroundView;
+    juce::ImageComponent backgroundComponent;
+
     juce::AudioVisualiserComponent audioVisualiserComponent{ 2 };
 
     juce::Slider bufferSizeSlider;

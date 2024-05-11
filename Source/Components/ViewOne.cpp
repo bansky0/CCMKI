@@ -14,14 +14,17 @@
 //==============================================================================
 ViewOne::ViewOne(CCMkIAudioProcessor& p) : audioProcessor(p)
 {
+    backgroundView = juce::ImageCache::getFromMemory(BinaryData::viewBackground2_png, BinaryData::viewBackground2_pngSize);
+    backgroundComponent.setImage(backgroundView);
+    addAndMakeVisible(backgroundComponent);
+
     addAndMakeVisible(audioVisualiserComponent);
-    
+
     bufferSizeSlider.setSliderStyle(juce::Slider::LinearHorizontal);
     bufferSizeSlider.setTextBoxStyle(juce::Slider::NoTextBox, true, 0, 0);
     bufferSizeSlider.setLookAndFeel(&faderViewSlider);
     addAndMakeVisible(bufferSizeSlider);
 
-    //bufferSizeSlider.setTextBoxStyle(juce::Slider::NoTextBox, false, 0, 0);
     bufferSizeSlider.setRange(32, 128);
     bufferSizeSlider.onValueChange = [this]
         {
@@ -48,7 +51,8 @@ void ViewOne::paint (juce::Graphics& g)
 
 void ViewOne::resized()
 {
-    audioVisualiserComponent.setBounds(5, 5, getWidth()-10, getHeight()-30);
+    backgroundComponent.setBounds(getLocalBounds());
+    audioVisualiserComponent.setBounds(10, 10, 120, 105);
     bufferSizeSlider.setBounds(5, getHeight() - 20, getWidth() - 10, 15);
 }
 void ViewOne::timerCallback()

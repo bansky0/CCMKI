@@ -8,11 +8,29 @@
 
 namespace BinaryData
 {
-    extern const char*   background_jpg;
-    const int            background_jpgSize = 57413;
+    extern const char*   viewBackground2_png;
+    const int            viewBackground2_pngSize = 3664;
 
     extern const char*   background_png;
     const int            background_pngSize = 803491;
+
+    extern const char*   ratioOff2_png;
+    const int            ratioOff2_pngSize = 3199;
+
+    extern const char*   ratioOff4_png;
+    const int            ratioOff4_pngSize = 3149;
+
+    extern const char*   ratioOff16_png;
+    const int            ratioOff16_pngSize = 3392;
+
+    extern const char*   ratioOn2_png;
+    const int            ratioOn2_pngSize = 3253;
+
+    extern const char*   ratioOn4_png;
+    const int            ratioOn4_pngSize = 3172;
+
+    extern const char*   ratioOn16_png;
+    const int            ratioOn16_pngSize = 3432;
 
     extern const char*   faderView2_png;
     const int            faderView2_pngSize = 43408;
@@ -33,7 +51,7 @@ namespace BinaryData
     const int            knob_output_pngSize = 1220060;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 8;
+    const int namedResourceListSize = 14;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

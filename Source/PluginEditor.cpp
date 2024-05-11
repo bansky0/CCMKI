@@ -15,18 +15,11 @@ CCMkIAudioProcessorEditor::CCMkIAudioProcessorEditor (CCMkIAudioProcessor& p)
 {
     prepareBackground();
 
-    presetsListCombo.addItem("Sudaka", 1);
-    presetsListCombo.addItem("Orangine", 2);
-    presetsListCombo.addItem("Glue", 3);
-    presetsListCombo.addItem("Colour", 4);
-    presetsListCombo.setSelectedId(4);
-    presetsListCombo.addListener(this);
-    addAndMakeVisible(presetsListCombo);
-
     prepareSliders();
     prepareButtons();
     prepareLabels();
     prepareMeters();
+    prepareCombos();
 
     setSize (745, 220);
 
@@ -103,6 +96,7 @@ void CCMkIAudioProcessorEditor::resized()
     viewOne.setBounds           (juce::Rectangle<int>(585, 20, 140, 135));
 }
 
+
 void CCMkIAudioProcessorEditor::prepareBackground()
 {
     backgroundImage = juce::ImageCache::getFromMemory(BinaryData::background_png, BinaryData::background_pngSize);
@@ -171,27 +165,30 @@ void CCMkIAudioProcessorEditor::prepareSliders()
 void CCMkIAudioProcessorEditor::prepareButtons()
 {
     //ratio16
-    ratio16Button.setButtonText("16");
-    ratio16Button.setColour(juce::TextButton::buttonColourId, juce::Colour(20, 23, 28));
-    ratio16Button.setColour(juce::TextButton::buttonOnColourId, juce::Colour(20, 23, 28));
-    ratio16Button.setColour(juce::TextButton::textColourOffId, juce::Colour(189, 185, 183));
-    ratio16Button.setColour(juce::TextButton::textColourOnId, juce::Colour(182, 68, 66));
+    //ratio16Button.setButtonText("16");
+    ratio16Button.setLookAndFeel(&button16LookAndFeel);
+    //ratio16Button.setColour(juce::TextButton::buttonColourId, juce::Colour(20, 23, 28));
+    //ratio16Button.setColour(juce::TextButton::buttonOnColourId, juce::Colour(20, 23, 28));
+    //ratio16Button.setColour(juce::TextButton::textColourOffId, juce::Colour(189, 185, 183));
+    //ratio16Button.setColour(juce::TextButton::textColourOnId, juce::Colour(182, 68, 66));
     ratio16Button.setClickingTogglesState(true);
     
     //ratio4
-    ratio4Button.setButtonText("4");
-    ratio4Button.setColour(juce::TextButton::buttonColourId, juce::Colour(20, 23, 28));
-    ratio4Button.setColour(juce::TextButton::buttonOnColourId, juce::Colour(20, 23, 28));
-    ratio4Button.setColour(juce::TextButton::textColourOffId, juce::Colour(189, 185, 183));
-    ratio4Button.setColour(juce::TextButton::textColourOnId, juce::Colour(182, 68, 66));
+    //ratio4Button.setButtonText("4");
+    ratio4Button.setLookAndFeel(&button4LookAndFeel);
+    //ratio4Button.setColour(juce::TextButton::buttonColourId, juce::Colour(20, 23, 28));
+    //ratio4Button.setColour(juce::TextButton::buttonOnColourId, juce::Colour(20, 23, 28));
+    //ratio4Button.setColour(juce::TextButton::textColourOffId, juce::Colour(189, 185, 183));
+    //ratio4Button.setColour(juce::TextButton::textColourOnId, juce::Colour(182, 68, 66));
     ratio4Button.setClickingTogglesState(true);
 
     //ratio2
-    ratio2Button.setButtonText("2");
-    ratio2Button.setColour(juce::TextButton::buttonColourId, juce::Colour(20, 23, 28));
-    ratio2Button.setColour(juce::TextButton::buttonOnColourId, juce::Colour(20, 23, 28));
-    ratio2Button.setColour(juce::TextButton::textColourOffId, juce::Colour(189, 185, 183));
-    ratio2Button.setColour(juce::TextButton::textColourOnId, juce::Colour(182, 68, 66));
+    //ratio2Button.setButtonText("2");
+    ratio2Button.setLookAndFeel(&button2LookAndFeel);
+    //ratio2Button.setColour(juce::TextButton::buttonColourId, juce::Colour(20, 23, 28));
+    //ratio2Button.setColour(juce::TextButton::buttonOnColourId, juce::Colour(20, 23, 28));
+    //ratio2Button.setColour(juce::TextButton::textColourOffId, juce::Colour(189, 185, 183));
+    //ratio2Button.setColour(juce::TextButton::textColourOnId, juce::Colour(182, 68, 66));
     ratio2Button.setClickingTogglesState(true);
 
     //Make Visible
@@ -240,6 +237,21 @@ void CCMkIAudioProcessorEditor::prepareMeters()
 {
     addAndMakeVisible(levelMeterL);
     addAndMakeVisible(levelMeterR);
+}
+
+void CCMkIAudioProcessorEditor::prepareCombos()
+{
+    presetsListCombo.setColour(juce::ComboBox::ColourIds::backgroundColourId, juce::Colour(20, 23, 28));
+    presetsListCombo.setColour(juce::ComboBox::ColourIds::textColourId, juce::Colour(182, 68, 66));
+    presetsListCombo.setColour(juce::ComboBox::ColourIds::arrowColourId, juce::Colour(189, 185, 183));
+    
+    presetsListCombo.addItem("Sudaka", 1);
+    presetsListCombo.addItem("Orangine", 2);
+    presetsListCombo.addItem("Glue", 3);
+    presetsListCombo.addItem("Colour", 4);
+    presetsListCombo.setSelectedId(4);
+    presetsListCombo.addListener(this);
+    addAndMakeVisible(presetsListCombo);
 }
 
 void CCMkIAudioProcessorEditor::comboBoxChanged(juce::ComboBox* comboBoxThatHasChanged)

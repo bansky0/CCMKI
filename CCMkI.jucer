@@ -4,8 +4,15 @@
               addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
   <MAINGROUP id="s7Cwgo" name="CCMkI">
     <GROUP id="{648492CA-B298-9056-6055-BA43712E6248}" name="Assets">
-      <FILE id="wvda19" name="background.jpg" compile="0" resource="1" file="Assets/background.jpg"/>
+      <FILE id="YP5IwX" name="viewBackground2.png" compile="0" resource="1"
+            file="Assets/viewBackground2.png"/>
       <FILE id="q8vFJ5" name="background.png" compile="0" resource="1" file="Assets/background.png"/>
+      <FILE id="YTEEHv" name="ratioOff2.png" compile="0" resource="1" file="Assets/ratioOff2.png"/>
+      <FILE id="kxsj90" name="ratioOff4.png" compile="0" resource="1" file="Assets/ratioOff4.png"/>
+      <FILE id="rVvVxG" name="ratioOff16.png" compile="0" resource="1" file="Assets/ratioOff16.png"/>
+      <FILE id="F0X0XH" name="ratioOn2.png" compile="0" resource="1" file="Assets/ratioOn2.png"/>
+      <FILE id="sXZ0iD" name="ratioOn4.png" compile="0" resource="1" file="Assets/ratioOn4.png"/>
+      <FILE id="xn8pWH" name="ratioOn16.png" compile="0" resource="1" file="Assets/ratioOn16.png"/>
       <FILE id="yn2Jx3" name="faderView2.png" compile="0" resource="1" file="Assets/faderView2.png"/>
       <FILE id="Ahv7KF" name="faderView.png" compile="0" resource="1" file="Assets/faderView.png"/>
       <FILE id="oYLmlU" name="knob_AR.png" compile="0" resource="1" file="Assets/knob_AR.png"/>
@@ -24,10 +31,16 @@
       <FILE id="YhELun" name="PresetManager.h" compile="0" resource="0" file="Source/ManagerUtilies/PresetManager.h"/>
     </GROUP>
     <GROUP id="{4DCCF58E-8F73-6860-D0C0-86F1E03F5A94}" name="LookAndFeel">
+      <FILE id="okNKqw" name="Button2LookAndFeel.h" compile="0" resource="0"
+            file="Source/LookAndFeel/Button2LookAndFeel.h"/>
+      <FILE id="DYAiHc" name="Button4LookAndFeel.h" compile="0" resource="0"
+            file="Source/LookAndFeel/Button4LookAndFeel.h"/>
+      <FILE id="sRubmX" name="Button16LookAndFeel.h" compile="0" resource="0"
+            file="Source/LookAndFeel/Button16LookAndFeel.h"/>
       <FILE id="PxoS2o" name="FaderLookAndFeel.h" compile="0" resource="0"
             file="Source/LookAndFeel/FaderLookAndFeel.h"/>
-      <FILE id="nGINPh" name="knobLookAndFeel.h" compile="0" resource="0"
-            file="Source/LookAndFeel/knobLookAndFeel.h"/>
+      <FILE id="nGINPh" name="KnobLookAndFeel.h" compile="0" resource="0"
+            file="Source/LookAndFeel/KnobLookAndFeel.h"/>
       <FILE id="VDvvkS" name="KnobLookAndFeel2.h" compile="0" resource="0"
             file="Source/LookAndFeel/KnobLookAndFeel2.h"/>
       <FILE id="HmNiSU" name="KnobLookAndFeel3.h" compile="0" resource="0"

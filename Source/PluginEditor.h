@@ -14,6 +14,9 @@
 #include "LookAndFeel/KnobLookAndFeel2.h"
 #include "LookAndFeel/KnobLookAndFeel3.h"
 #include "LookAndFeel/KnobLookAndFeel4.h"
+#include "LookAndFeel/Button16LookAndFeel.h"
+#include "LookAndFeel/Button4LookAndFeel.h"
+#include "LookAndFeel/Button2LookAndFeel.h"
 #include "Components/LevelMeters.h"
 #include "Components/ViewOne.h"
 
@@ -37,6 +40,7 @@ public:
     void comboBoxChanged(juce::ComboBox* comboBoxThatHasChanged) override;
     void prepareLabels();
     void prepareMeters();
+    void prepareCombos();
 
     //void sliderValueChanged(juce::Slider*) override;
 private:
@@ -58,6 +62,9 @@ private:
     KnobLookAndFeel2 knobLookAndFeel2;
     KnobLookAndFeel3 knobLookAndFeel3;
     KnobLookAndFeel4 knobLookAndFeel4;
+    Button16LookAndFeel button16LookAndFeel;
+    Button4LookAndFeel button4LookAndFeel;
+    Button2LookAndFeel button2LookAndFeel;
 
     juce::Image backgroundImage;
     juce::ImageComponent backgroundComponent;
