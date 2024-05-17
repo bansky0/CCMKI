@@ -34,6 +34,7 @@ CCMkIAudioProcessorEditor::~CCMkIAudioProcessorEditor()
     attackSlider.setLookAndFeel(nullptr);
     releaseSlider.setLookAndFeel(nullptr);
     outputSlider.setLookAndFeel(nullptr);
+    ratio16Button.setLookAndFeel(nullptr);
 
 }
 
