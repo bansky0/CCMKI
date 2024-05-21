@@ -30,10 +30,13 @@ The CCMkI is a vst3/au compressor inspired in a classic compressor 1176. This pl
 
 The CCMkI includes 4 mode presets:
 
-**Sudaka** This mode has hard limmiting properties with slow attack ans fast release wich allows pass some transients and add extra distortion. Recomended for drums and rooms mics.
-**Orangine** This mode has severe compression mid/fast time attack and release fits great with everything.
-**Colour** This mode saturates the input level and applies light compression to the signal. Usefull to add harmonics to any instrument.
-**Glue**  This mode has moderate compression, mainly aplied to "glue" various instruments in a mix bus.
+- **Sudaka** This mode has hard limmiting properties with slow attack ans fast release wich allows pass some transients and add extra distortion. Recomended for drums and rooms mics.
+
+- **Orangine** This mode has severe compression mid/fast time attack and release fits great with everything.
+
+- **Colour** This mode saturates the input level and applies light compression to the signal. Usefull to add harmonics to any instrument.
+
+- **Glue**  This mode has moderate compression, mainly aplied to "glue" various instruments in a mix bus.
 
 ### Multi ratio buttons
 
