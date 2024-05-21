@@ -1,6 +1,6 @@
 # **CCMkI** 
 ## Classic Compressor MkI
-![CCMkI](Assets/CCMkI.png "CCMkI")
+![CCMkI](Assets/CCMkI.PNG "CCMkI")
 
 ## Introduction
 The CCMkI is a vst3/au compressor inspired in a classic compressor 1176. This plugin was build with objetive of create a good sounding limiter/compressor with an intuitive interface with the ability to saturate the input signal. The main algorithm is based in Erick Tarr basic compressor with a biquad filter and exponential saturation while the GUI kept a minimalistic style with six basic compressor's parameters (input, ratio, threshold, attack, release and output), aditionally the main interface draw the output signal in real-time and allow vizualice it in RMS bar meters. The project was presented as final project for the course Developping Plugins by Ear Candy Technologies 2024.
