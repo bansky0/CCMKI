@@ -253,6 +253,8 @@ void CCMkIAudioProcessorEditor::prepareCombos()
     presetsListCombo.setSelectedId(4);
     presetsListCombo.addListener(this);
     addAndMakeVisible(presetsListCombo);
+
+    presetsListAttach = std::make_unique<juce::AudioProcessorValueTreeState::ComboBoxAttachment>(audioProcessor.apvts, "presetList", presetsListCombo);
 }
 
 void CCMkIAudioProcessorEditor::comboBoxChanged(juce::ComboBox* comboBoxThatHasChanged)

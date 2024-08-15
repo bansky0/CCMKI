@@ -55,6 +55,7 @@ private:
     std::unique_ptr<juce::AudioProcessorValueTreeState::ButtonAttachment> ratio16Attach, ratio4Attach, ratio2Attach;
 
     juce::ComboBox presetsListCombo;
+    std::unique_ptr<juce::AudioProcessorValueTreeState::ComboBoxAttachment> presetsListAttach;
 
     juce::Label inputLabel, thresholdLabel, attackLabel, releaseLabel, ratioLabel, outputLabel, rmsLabelL,rmsLabelR;
 

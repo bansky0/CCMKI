@@ -74,6 +74,9 @@ juce::AudioProcessorValueTreeState::ParameterLayout CCMkIAudioProcessor::createP
 
     //parameters.add(std::make_unique<juce::AudioParameterFloat>(juce::ParameterID{ "g", 1 }, "G", juce::NormalisableRange<float>(0.0f, 2.5f, 0.1), 1.0f));
     parameters.add(std::make_unique<juce::AudioParameterFloat>(juce::ParameterID{ "output", 1 }, "Output", juce::NormalisableRange<float>(-42.0f, 12.0f,0.01f), 0.0f));
+    
+    parameters.add(std::make_unique<juce::AudioParameterChoice>(juce::ParameterID{ "presetList", 1 }, "PresetList",
+        juce::StringArray("Sudaka", "Orangine", "Glue", "Colour"), 0));
     return parameters;
 }
 
