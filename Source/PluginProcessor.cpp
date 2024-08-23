@@ -28,6 +28,60 @@ CCMkIAudioProcessor::~CCMkIAudioProcessor()
 {
 }
 
+int CCMkIAudioProcessor::getCurrentPresetIndex() const
+{
+    return currentPresetIndex;
+}
+
+void CCMkIAudioProcessor::loadPreset(int presetIndex)
+{
+    currentPresetIndex = presetIndex;
+
+    switch (presetIndex)
+    {
+    case 1:
+        apvts.getParameter("input")->setValueNotifyingHost(juce::jmap(3.0f, -42.0f, 12.0f, 0.0f, 1.0f));
+        apvts.getParameter("threshold")->setValueNotifyingHost(juce::jmap(-12.0f, -100.0f, 0.0f, 0.0f, 1.0f));
+        apvts.getParameter("attack")->setValueNotifyingHost(juce::jmap(0.008f, 0.00002f, 0.008f, 1.0f, 0.0f));
+        apvts.getParameter("release")->setValueNotifyingHost(juce::jmap(0.575f, 0.05f, 1.10f, 1.0f, 0.0f));
+        apvts.getParameter("ratio16")->setValueNotifyingHost(1);
+        apvts.getParameter("ratio4")->setValueNotifyingHost(1);
+        apvts.getParameter("ratio2")->setValueNotifyingHost(1);
+        apvts.getParameter("output")->setValueNotifyingHost(juce::jmap(-1.0f, -42.0f, 12.0f, 0.0f, 1.0f));
+        break;
+    case 2:
+        apvts.getParameter("input")->setValueNotifyingHost(juce::jmap(-1.0f, -42.0f, 12.0f, 0.0f, 1.0f));
+        apvts.getParameter("threshold")->setValueNotifyingHost(juce::jmap(-15.0f, -100.0f, 0.0f, 0.0f, 1.0f));
+        apvts.getParameter("attack")->setValueNotifyingHost(juce::jmap(0.0016f, 0.00002f, 0.008f, 1.0f, 0.0f));
+        apvts.getParameter("release")->setValueNotifyingHost(juce::jmap(0.3125f, 0.05f, 1.10f, 1.0f, 0.0f));
+        apvts.getParameter("ratio16")->setValueNotifyingHost(1);
+        apvts.getParameter("ratio4")->setValueNotifyingHost(0);
+        apvts.getParameter("ratio2")->setValueNotifyingHost(1);
+        apvts.getParameter("output")->setValueNotifyingHost(juce::jmap(4.0f, -42.0f, 12.0f, 0.0f, 1.0f));
+        break;
+    case 3:
+        apvts.getParameter("input")->setValueNotifyingHost(juce::jmap(-6.0f, -42.0f, 12.0f, 0.0f, 1.0f));
+        apvts.getParameter("threshold")->setValueNotifyingHost(juce::jmap(-10.0f, -100.0f, 0.0f, 0.0f, 1.0f));
+        apvts.getParameter("attack")->setValueNotifyingHost(juce::jmap(0.008f, 0.00002f, 0.008f, 1.0f, 0.0f));
+        apvts.getParameter("release")->setValueNotifyingHost(juce::jmap(0.575f, 0.05f, 1.10f, 1.0f, 0.0f));
+        apvts.getParameter("ratio16")->setValueNotifyingHost(0);
+        apvts.getParameter("ratio4")->setValueNotifyingHost(1);
+        apvts.getParameter("ratio2")->setValueNotifyingHost(0);
+        apvts.getParameter("output")->setValueNotifyingHost(juce::jmap(+7.0f, -42.0f, 12.0f, 0.0f, 1.0f));
+        break;
+    case 4:
+        apvts.getParameter("input")->setValueNotifyingHost(juce::jmap(10.0f, -42.0f, 12.0f, 0.0f, 1.0f));
+        apvts.getParameter("threshold")->setValueNotifyingHost(juce::jmap(-3.0f, -100.0f, 0.0f, 0.0f, 1.0f));
+        apvts.getParameter("attack")->setValueNotifyingHost(juce::jmap(0.002f, 0.00002f, 0.008f, 1.0f, 0.0f));
+        apvts.getParameter("release")->setValueNotifyingHost(juce::jmap(0.525f, 0.05f, 1.10f, 1.0f, 0.0f));
+        apvts.getParameter("ratio16")->setValueNotifyingHost(0);
+        apvts.getParameter("ratio4")->setValueNotifyingHost(0);
+        apvts.getParameter("ratio2")->setValueNotifyingHost(1);
+        apvts.getParameter("output")->setValueNotifyingHost(juce::jmap(-6.0f, -42.0f, 12.0f, 0.0f, 1.0f));
+        break;
+    }
+}
+
 juce::AudioProcessorValueTreeState::ParameterLayout CCMkIAudioProcessor::createParameters()
 {
 
@@ -75,8 +129,8 @@ juce::AudioProcessorValueTreeState::ParameterLayout CCMkIAudioProcessor::createP
     //parameters.add(std::make_unique<juce::AudioParameterFloat>(juce::ParameterID{ "g", 1 }, "G", juce::NormalisableRange<float>(0.0f, 2.5f, 0.1), 1.0f));
     parameters.add(std::make_unique<juce::AudioParameterFloat>(juce::ParameterID{ "output", 1 }, "Output", juce::NormalisableRange<float>(-42.0f, 12.0f,0.01f), 0.0f));
     
-    parameters.add(std::make_unique<juce::AudioParameterChoice>(juce::ParameterID{ "presetList", 1 }, "PresetList",
-        juce::StringArray("Sudaka", "Orangine", "Glue", "Colour"), 0));
+    parameters.add(std::make_unique<juce::AudioParameterChoice>(juce::ParameterID{ "presetList", 1 }, "PresetList", juce::StringArray("Sudaka", "Orangine", "Glue", "Colour"), 0));
+    
     return parameters;
 }
 

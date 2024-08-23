@@ -37,6 +37,7 @@ ViewOne::ViewOne(CCMkIAudioProcessor& p) : audioProcessor(p)
 ViewOne::~ViewOne()
 {
     stopTimer();
+    bufferSizeSlider.setLookAndFeel(nullptr);
 }
 
 void ViewOne::paint (juce::Graphics& g)

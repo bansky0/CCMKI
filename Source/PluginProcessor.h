@@ -63,11 +63,17 @@ public:
 
     void updateParameters();
 
+    void loadPreset(int presetIndex);
+
+    int getCurrentPresetIndex() const;
+
     float getRmsValue(const int channel) const;
 
     juce::AudioBuffer<float> samples;
 
 private:
+    int currentPresetIndex = 0;
+
     HPF_Biquad hpf;
     LPF_Biquad lpf;
     Gain input;

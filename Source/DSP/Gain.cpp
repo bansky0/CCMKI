@@ -44,7 +44,7 @@ void Gain::process(juce::AudioBuffer<float>& buffer)
             float inSample = buffer.getSample(channel, i);
             //float processesedSample = ((2.0f / juce::MathConstants<float>::pi) * atanf(inSample * g) * gainValue);//std::tanh(inSample * gainValue);//std::clamp(inSample * gainValue, -1.0f, 1.0f);
             float processesedSample = 0.0f;
-            //Condiciónes para generar distorsión.
+            //CondiciÃ³nes para generar distorsiÃ³n.
             if (inSample >=0) 
             {
                 processesedSample = 1 - expf(-fabs(g * inSample * gainValue));

@@ -26,14 +26,14 @@ void SmoothFilter::process(juce::AudioBuffer<float>& buffer) const
         {
             float inSample = buffer.getSample(channel, i);
 
-            //conversiÛn a dB.
+            //conversi√≥n a dB.
             float processesedSample = 20.0f * std::log10(std::fabs(inSample));
             if (processesedSample < -120.0) //Ruido de fondo.
             {
                 processesedSample = -120.0;
             }
 
-            if (processesedSample > (thresholdValue))//(processesedSample > (thresholdValue + kneeValue/2.0f)) //condiciÛn para comprimir con valor de knee
+            if (processesedSample > (thresholdValue))//(processesedSample > (thresholdValue + kneeValue/2.0f)) //condici√≥n para comprimir con valor de knee
             {
                 float gain = thresholdValue + (processesedSample - thresholdValue) / ratioValue; //compresion
                 //float gainLineal = std::pow(10.0, gain * 0.05); //conversion de db a lineal.
@@ -67,7 +67,7 @@ void SmoothFilter::process(juce::AudioBuffer<float>& buffer) const
                 //}
 
             }
-            //else if (processesedSample > (thresholdValue - kneeValue / 2.0f)) //condiciÛn2 para comprimir
+            //else if (processesedSample > (thresholdValue - kneeValue / 2.0f)) //condici√≥n2 para comprimir
             //{
             //    float gain = processesedSample + powf((1.0f / ratioValue - 1.0f) * (processesedSample - thresholdValue + kneeValue / 2.0f), 2.0f) / (2 * kneeValue);
             //    float gainLineal = std::pow(10.0, gain * 0.05);

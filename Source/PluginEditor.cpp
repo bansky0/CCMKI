@@ -11,7 +11,7 @@
 
 //==============================================================================
 CCMkIAudioProcessorEditor::CCMkIAudioProcessorEditor (CCMkIAudioProcessor& p)
-    : AudioProcessorEditor (&p), audioProcessor (p)
+    : AudioProcessorEditor (&p), audioProcessor (p), isInitialized(false)
 {
     prepareBackground();
 
@@ -35,6 +35,8 @@ CCMkIAudioProcessorEditor::~CCMkIAudioProcessorEditor()
     releaseSlider.setLookAndFeel(nullptr);
     outputSlider.setLookAndFeel(nullptr);
     ratio16Button.setLookAndFeel(nullptr);
+    ratio4Button.setLookAndFeel(nullptr);
+    ratio2Button.setLookAndFeel(nullptr);
 
 }
 
@@ -246,60 +248,77 @@ void CCMkIAudioProcessorEditor::prepareCombos()
     presetsListCombo.setColour(juce::ComboBox::ColourIds::textColourId, juce::Colour(182, 68, 66));
     presetsListCombo.setColour(juce::ComboBox::ColourIds::arrowColourId, juce::Colour(189, 185, 183));
     
-    presetsListCombo.addItem("Sudaka", 1);
-    presetsListCombo.addItem("Orangine", 2);
-    presetsListCombo.addItem("Glue", 3);
-    presetsListCombo.addItem("Colour", 4);
-    presetsListCombo.setSelectedId(4);
+    presetsListCombo.addItem("MyConfig", 1);
+    presetsListCombo.addItem("Sudaka", 2);
+    presetsListCombo.addItem("Orangine", 3);
+    presetsListCombo.addItem("Glue", 4);
+    presetsListCombo.addItem("Colour", 5);
+    presetsListCombo.setSelectedId(1);
     presetsListCombo.addListener(this);
     addAndMakeVisible(presetsListCombo);
 
-    presetsListAttach = std::make_unique<juce::AudioProcessorValueTreeState::ComboBoxAttachment>(audioProcessor.apvts, "presetList", presetsListCombo);
+    presetsListCombo.setSelectedItemIndex(audioProcessor.getCurrentPresetIndex(), juce::dontSendNotification);
+    showEditor();
+    //presetsListAttach = std::make_unique<juce::AudioProcessorValueTreeState::ComboBoxAttachment>(audioProcessor.apvts, "presetList", presetsListCombo);
 }
 
 void CCMkIAudioProcessorEditor::comboBoxChanged(juce::ComboBox* comboBoxThatHasChanged)
 {
-    switch (presetsListCombo.getSelectedId())
+    if (isInitialized && comboBoxThatHasChanged == &presetsListCombo)
     {
-    case 1:
-        audioProcessor.apvts.getParameter("input")->setValueNotifyingHost(juce::jmap(3.0f, -42.0f, 12.0f, 0.0f, 1.0f));
-        audioProcessor.apvts.getParameter("threshold")->setValueNotifyingHost(juce::jmap(-12.0f, -100.0f, 0.0f, 0.0f, 1.0f));
-        audioProcessor.apvts.getParameter("attack")->setValueNotifyingHost(juce::jmap(0.008f, 0.00002f, 0.008f, 1.0f, 0.0f));
-        audioProcessor.apvts.getParameter("release")->setValueNotifyingHost(juce::jmap(0.575f, 0.05f, 1.10f, 1.0f, 0.0f));
-        audioProcessor.apvts.getParameter("ratio16")->setValueNotifyingHost(1);
-        audioProcessor.apvts.getParameter("ratio4")->setValueNotifyingHost(1);
-        audioProcessor.apvts.getParameter("ratio2")->setValueNotifyingHost(1);
-        audioProcessor.apvts.getParameter("output")->setValueNotifyingHost(juce::jmap(3.0f, -42.0f, 12.0f, 0.0f, 1.0f));
-        break;
-    case 2:
-        audioProcessor.apvts.getParameter("input")->setValueNotifyingHost(juce::jmap(0.0f, -42.0f, 12.0f, 0.0f, 1.0f));
-        audioProcessor.apvts.getParameter("threshold")->setValueNotifyingHost(juce::jmap(-15.0f, -100.0f, 0.0f, 0.0f, 1.0f));
-        audioProcessor.apvts.getParameter("attack")->setValueNotifyingHost(juce::jmap(0.0016f, 0.00002f, 0.008f, 1.0f, 0.0f));
-        audioProcessor.apvts.getParameter("release")->setValueNotifyingHost(juce::jmap(0.3125f, 0.05f, 1.10f, 1.0f, 0.0f));
-        audioProcessor.apvts.getParameter("ratio16")->setValueNotifyingHost(1);
-        audioProcessor.apvts.getParameter("ratio4")->setValueNotifyingHost(0);
-        audioProcessor.apvts.getParameter("ratio2")->setValueNotifyingHost(1);
-        audioProcessor.apvts.getParameter("output")->setValueNotifyingHost(juce::jmap(-3.0f, -42.0f, 12.0f, 0.0f, 1.0f));
-        break;
-    case 3:
-        audioProcessor.apvts.getParameter("input")->setValueNotifyingHost(juce::jmap(0.0f, -42.0f, 12.0f, 0.0f, 1.0f));
-        audioProcessor.apvts.getParameter("threshold")->setValueNotifyingHost(juce::jmap(-10.0f, -100.0f, 0.0f, 0.0f, 1.0f));
-        audioProcessor.apvts.getParameter("attack")->setValueNotifyingHost(juce::jmap(0.008f, 0.00002f, 0.008f, 1.0f, 0.0f));
-        audioProcessor.apvts.getParameter("release")->setValueNotifyingHost(juce::jmap(0.575f, 0.05f, 1.10f, 1.0f, 0.0f));
-        audioProcessor.apvts.getParameter("ratio16")->setValueNotifyingHost(0);
-        audioProcessor.apvts.getParameter("ratio4")->setValueNotifyingHost(1);
-        audioProcessor.apvts.getParameter("ratio2")->setValueNotifyingHost(0);
-        audioProcessor.apvts.getParameter("output")->setValueNotifyingHost(juce::jmap(-3.0f, -42.0f, 12.0f, 0.0f, 1.0f));
-        break;
-    case 4:
-        audioProcessor.apvts.getParameter("input")->setValueNotifyingHost(juce::jmap(10.0f, -42.0f, 12.0f, 0.0f, 1.0f));
-        audioProcessor.apvts.getParameter("threshold")->setValueNotifyingHost(juce::jmap(5.0f, -100.0f, 0.0f, 0.0f, 1.0f));
-        audioProcessor.apvts.getParameter("attack")->setValueNotifyingHost(juce::jmap(0.002f, 0.00002f, 0.008f, 1.0f, 0.0f));
-        audioProcessor.apvts.getParameter("release")->setValueNotifyingHost(juce::jmap(0.525f, 0.05f, 1.10f, 1.0f, 0.0f));
-        audioProcessor.apvts.getParameter("ratio16")->setValueNotifyingHost(0);
-        audioProcessor.apvts.getParameter("ratio4")->setValueNotifyingHost(0);
-        audioProcessor.apvts.getParameter("ratio2")->setValueNotifyingHost(1);
-        audioProcessor.apvts.getParameter("output")->setValueNotifyingHost(juce::jmap(-10.0f, -42.0f, 12.0f, 0.0f, 1.0f));
-        break;
+        int presetIndex = presetsListCombo.getSelectedItemIndex();
+        audioProcessor.loadPreset(presetIndex);
     }
+    //if (contListenerCalls > 0) 
+    //{
+    //    switch (presetsListCombo.getSelectedId())
+    //    {
+    //    case 1:
+    //        audioProcessor.apvts.getParameter("input")->setValueNotifyingHost(juce::jmap(3.0f, -42.0f, 12.0f, 0.0f, 1.0f));
+    //        audioProcessor.apvts.getParameter("threshold")->setValueNotifyingHost(juce::jmap(-12.0f, -100.0f, 0.0f, 0.0f, 1.0f));
+    //        audioProcessor.apvts.getParameter("attack")->setValueNotifyingHost(juce::jmap(0.008f, 0.00002f, 0.008f, 1.0f, 0.0f));
+    //        audioProcessor.apvts.getParameter("release")->setValueNotifyingHost(juce::jmap(0.575f, 0.05f, 1.10f, 1.0f, 0.0f));
+    //        audioProcessor.apvts.getParameter("ratio16")->setValueNotifyingHost(1);
+    //        audioProcessor.apvts.getParameter("ratio4")->setValueNotifyingHost(1);
+    //        audioProcessor.apvts.getParameter("ratio2")->setValueNotifyingHost(1);
+    //        audioProcessor.apvts.getParameter("output")->setValueNotifyingHost(juce::jmap(3.0f, -42.0f, 12.0f, 0.0f, 1.0f));
+    //        break;
+    //    case 2:
+    //        audioProcessor.apvts.getParameter("input")->setValueNotifyingHost(juce::jmap(0.0f, -42.0f, 12.0f, 0.0f, 1.0f));
+    //        audioProcessor.apvts.getParameter("threshold")->setValueNotifyingHost(juce::jmap(-15.0f, -100.0f, 0.0f, 0.0f, 1.0f));
+    //        audioProcessor.apvts.getParameter("attack")->setValueNotifyingHost(juce::jmap(0.0016f, 0.00002f, 0.008f, 1.0f, 0.0f));
+    //        audioProcessor.apvts.getParameter("release")->setValueNotifyingHost(juce::jmap(0.3125f, 0.05f, 1.10f, 1.0f, 0.0f));
+    //        audioProcessor.apvts.getParameter("ratio16")->setValueNotifyingHost(1);
+    //        audioProcessor.apvts.getParameter("ratio4")->setValueNotifyingHost(0);
+    //        audioProcessor.apvts.getParameter("ratio2")->setValueNotifyingHost(1);
+    //        audioProcessor.apvts.getParameter("output")->setValueNotifyingHost(juce::jmap(-3.0f, -42.0f, 12.0f, 0.0f, 1.0f));
+    //        break;
+    //    case 3:
+    //        audioProcessor.apvts.getParameter("input")->setValueNotifyingHost(juce::jmap(0.0f, -42.0f, 12.0f, 0.0f, 1.0f));
+    //        audioProcessor.apvts.getParameter("threshold")->setValueNotifyingHost(juce::jmap(-10.0f, -100.0f, 0.0f, 0.0f, 1.0f));
+    //        audioProcessor.apvts.getParameter("attack")->setValueNotifyingHost(juce::jmap(0.008f, 0.00002f, 0.008f, 1.0f, 0.0f));
+    //        audioProcessor.apvts.getParameter("release")->setValueNotifyingHost(juce::jmap(0.575f, 0.05f, 1.10f, 1.0f, 0.0f));
+    //        audioProcessor.apvts.getParameter("ratio16")->setValueNotifyingHost(0);
+    //        audioProcessor.apvts.getParameter("ratio4")->setValueNotifyingHost(1);
+    //        audioProcessor.apvts.getParameter("ratio2")->setValueNotifyingHost(0);
+    //        audioProcessor.apvts.getParameter("output")->setValueNotifyingHost(juce::jmap(-3.0f, -42.0f, 12.0f, 0.0f, 1.0f));
+    //        break;
+    //    case 4:
+    //        audioProcessor.apvts.getParameter("input")->setValueNotifyingHost(juce::jmap(10.0f, -42.0f, 12.0f, 0.0f, 1.0f));
+    //        audioProcessor.apvts.getParameter("threshold")->setValueNotifyingHost(juce::jmap(5.0f, -100.0f, 0.0f, 0.0f, 1.0f));
+    //        audioProcessor.apvts.getParameter("attack")->setValueNotifyingHost(juce::jmap(0.002f, 0.00002f, 0.008f, 1.0f, 0.0f));
+    //        audioProcessor.apvts.getParameter("release")->setValueNotifyingHost(juce::jmap(0.525f, 0.05f, 1.10f, 1.0f, 0.0f));
+    //        audioProcessor.apvts.getParameter("ratio16")->setValueNotifyingHost(0);
+    //        audioProcessor.apvts.getParameter("ratio4")->setValueNotifyingHost(0);
+    //        audioProcessor.apvts.getParameter("ratio2")->setValueNotifyingHost(1);
+    //        audioProcessor.apvts.getParameter("output")->setValueNotifyingHost(juce::jmap(-10.0f, -42.0f, 12.0f, 0.0f, 1.0f));
+    //        break;
+    //    }
+    //}
+    //contListenerCalls++;
+}
+
+void CCMkIAudioProcessorEditor::showEditor()
+{
+    isInitialized = true;
 }

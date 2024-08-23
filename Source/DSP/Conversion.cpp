@@ -26,7 +26,7 @@ void Conversion::process(juce::AudioBuffer<float>& buffer) const
         {
             //Obtener la muestra de entrada
             float inSample = buffer.getSample(channel, i);
-            float processesedSample = 20.0f * std::log10(inSample); //conversión a dB.
+            float processesedSample = 20.0f * std::log10(inSample); //conversiÃ³n a dB.
             if (processesedSample< -120.0) //Ruido de fondo.
             {
                 processesedSample = -120.0;

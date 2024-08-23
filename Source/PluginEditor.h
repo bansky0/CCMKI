@@ -38,6 +38,7 @@ public:
     void prepareSliders();
     void prepareButtons();
     void comboBoxChanged(juce::ComboBox* comboBoxThatHasChanged) override;
+    void showEditor();
     void prepareLabels();
     void prepareMeters();
     void prepareCombos();
@@ -46,7 +47,10 @@ public:
 private:
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
+    int contListenerCalls;
+
     CCMkIAudioProcessor& audioProcessor;
+    bool isInitialized;
 
     juce::Slider inputSlider, thresholdSlider, attackSlider, releaseSlider, outputSlider;
     std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> inputAttach, thresholdAttach,attackAttach, releaseAttach, outputAttach;
